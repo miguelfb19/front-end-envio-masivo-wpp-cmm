@@ -7,7 +7,7 @@ import { useMobileStore } from "./store/mobile-store";
 
 function App() {
 
-  const { setIsMobile } = useMobileStore();
+  const { setIsMobile, isMobile } = useMobileStore();
 
   useEffect(() => {
       const handleResize = () => {
@@ -15,7 +15,7 @@ function App() {
       };
       window.addEventListener("resize", handleResize);
       return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    }, [isMobile, setIsMobile]);
 
   return (
     <div className="layout-center">
