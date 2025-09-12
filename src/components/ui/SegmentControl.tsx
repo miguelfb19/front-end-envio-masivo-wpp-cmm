@@ -8,11 +8,7 @@ interface Props {
   defaultValue?: string;
 }
 
-export const SegmentControl = ({
-  items,
-  getValue,
-  defaultValue,
-}: Props) => {
+export const SegmentControl = ({ items, getValue, defaultValue }: Props) => {
   const [value, setValue] = useState<string | null>(defaultValue || items[0]);
   const { isMobile } = useMobileStore();
 
@@ -25,7 +21,7 @@ export const SegmentControl = ({
       }}
       size={isMobile ? "xs" : "md"}
     >
-      <SegmentGroup.Indicator />
+      <SegmentGroup.Indicator bgSize="cover" />
       <SegmentGroup.Items items={items} className="cursor-pointer capitalize" />
     </SegmentGroup.Root>
   );

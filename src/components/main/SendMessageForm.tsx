@@ -49,88 +49,90 @@ export const SendMessageForm = () => {
           isFloating
         />
       )}
-      <div id="container">
-        <div className="rounded-lg shadow-lg bg-white p-5 md:p-10 self-center w-full md:w-auto overflow-auto">
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col gap-10"
+
+      <div
+        id="container"
+        className="rounded-lg shadow-lg bg-white p-5 md:p-10 self-center justify-self-center w-full xl:max-w-9/12 overflow-auto"
+      >
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex flex-col gap-10"
+        >
+          <h2 className="text-2xl font-bold text-blue-600">Enviar Mensaje</h2>
+          <div
+            id="form-grid"
+            className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-center items-center text-center text-slate-700"
           >
-            <h2 className="text-2xl font-bold text-blue-600">Enviar Mensaje</h2>
-            <div
-              id="form-grid"
-              className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-center items-center text-center text-slate-700"
-            >
-              <div className="flex flex-col gap-4 text-left w-fit">
-                <label htmlFor="seminario">Seminario:</label>
-                <Controller
-                  name="seminario"
-                  control={control}
-                  render={({ field }) => (
-                    <SegmentControl
-                      items={seminarios}
-                      getValue={(value) => field.onChange(value)}
-                      defaultValue={field.value}
-                    />
-                  )}
-                />
-              </div>
-              <div className="flex flex-col gap-4 text-left w-fit">
-                <label htmlFor="ciudad">Ciudad:</label>
-                <Controller
-                  name="ciudad"
-                  control={control}
-                  render={({ field }) => (
-                    <SegmentControl
-                      items={ciudades}
-                      getValue={(value) => field.onChange(value)}
-                      defaultValue={field.value}
-                    />
-                  )}
-                />
-              </div>
-              <div className="flex flex-col gap-4 text-left w-fit">
-                <label htmlFor="horario">Horario:</label>
-                <Controller
-                  name="horario"
-                  control={control}
-                  render={({ field }) => (
-                    <SegmentControl
-                      items={horarios}
-                      getValue={(value) => field.onChange(value)}
-                      defaultValue={field.value}
-                    />
-                  )}
-                />
-              </div>
-              <div className="flex flex-col gap-4 text-left w-fit">
-                <label htmlFor="idVideo">Id de video:</label>
-                <Input
-                  {...register("idVideo", { required: true })}
-                  color="blue.600"
-                  variant="subtle"
-                  size={isMobile ? "sm" : "md"}
-                  placeholder="Ejemplo: dQw4w9WgXcQ"
-                />
-              </div>
-              <div className="flex flex-col gap-4 text-left md:col-span-2">
-                <label htmlFor="mensaje">Mensaje:</label>
-                <Textarea
-                  {...register("mensaje", { required: true })}
-                  color="blue.600"
-                  variant="subtle"
-                  size={isMobile ? "sm" : "md"}
-                  placeholder="Escribe tu mensaje aquí..."
-                  rows={4}
-                  maxHeight={200}
-                  minHeight={50}
-                />
-              </div>
+            <div className="flex flex-col gap-4 text-left w-fit">
+              <label htmlFor="seminario">Seminario:</label>
+              <Controller
+                name="seminario"
+                control={control}
+                render={({ field }) => (
+                  <SegmentControl
+                    items={seminarios}
+                    getValue={(value) => field.onChange(value)}
+                    defaultValue={field.value}
+                  />
+                )}
+              />
             </div>
-            <Button type="submit" colorPalette="blue">
-              Enviar
-            </Button>
-          </form>
-        </div>
+            <div className="flex flex-col gap-4 text-left w-fit">
+              <label htmlFor="ciudad">Ciudad:</label>
+              <Controller
+                name="ciudad"
+                control={control}
+                render={({ field }) => (
+                  <SegmentControl
+                    items={ciudades}
+                    getValue={(value) => field.onChange(value)}
+                    defaultValue={field.value}
+                  />
+                )}
+              />
+            </div>
+            <div className="flex flex-col gap-4 text-left w-fit">
+              <label htmlFor="horario">Horario:</label>
+              <Controller
+                name="horario"
+                control={control}
+                render={({ field }) => (
+                  <SegmentControl
+                    items={horarios}
+                    getValue={(value) => field.onChange(value)}
+                    defaultValue={field.value}
+                  />
+                )}
+              />
+            </div>
+            <div className="flex flex-col gap-4 text-left w-fit">
+              <label htmlFor="idVideo">Id de video:</label>
+              <Input
+                {...register("idVideo", { required: true })}
+                color="blue.600"
+                variant="subtle"
+                size={isMobile ? "sm" : "md"}
+                placeholder="Ejemplo: dQw4w9WgXcQ"
+              />
+            </div>
+            <div className="flex flex-col gap-4 text-left md:col-span-2">
+              <label htmlFor="mensaje">Mensaje:</label>
+              <Textarea
+                {...register("mensaje", { required: true })}
+                color="blue.600"
+                variant="subtle"
+                size={isMobile ? "sm" : "md"}
+                placeholder="Escribe tu mensaje aquí..."
+                rows={4}
+                maxHeight={200}
+                minHeight={50}
+              />
+            </div>
+          </div>
+          <Button type="submit" colorPalette="blue">
+            Enviar
+          </Button>
+        </form>
       </div>
     </div>
   );
