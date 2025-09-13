@@ -53,18 +53,19 @@ export const LoginForm = () => {
   };
 
   return (
-    <div className="layout-center">
+    <div className="layout-center justify-center">
       <form
         onSubmit={handleSubmit(onLogin)}
         className="rounded-lg shadow-lg bg-white p-10 self-center w-full md:w-1/2"
       >
-        <h2 className="text-2xl font-bold text-blue-600">Iniciar sesión</h2>
+        <h2 className="text-2xl font-bold text-blue-600 text-center">Iniciar sesión</h2>
         <Stack gap="2" align="flex-start" className="w-full mt-10">
           <Field.Root invalid={!!errors.user}>
-            <Field.Label>Usuario</Field.Label>
+            <Field.Label htmlFor="user">Usuario</Field.Label>
             <InputGroup startElement={<User />}>
               <Input
-                color="blue.600"
+                id="user"
+                colorPalette="blue"
                 variant="subtle"
                 css={{ "--border": "red" }}
                 {...register("user", { required: "Este campo es requerido" })}
@@ -74,7 +75,7 @@ export const LoginForm = () => {
           </Field.Root>
 
           <Field.Root invalid={!!errors.password}>
-            <Field.Label>Contraseña</Field.Label>
+            <Field.Label htmlFor="password">Contraseña</Field.Label>
             <InputGroup
               startElement={<Lock />}
               endElement={
@@ -82,7 +83,8 @@ export const LoginForm = () => {
               }
             >
               <Input
-                color="blue.600"
+                id="password"
+                colorPalette="blue"
                 variant="subtle"
                 type={revealed ? "text" : "password"}
                 {...register("password", {

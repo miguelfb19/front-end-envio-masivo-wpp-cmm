@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import { LoginForm } from "./components/auth/LoginForm";
-import { SendMessageForm } from "./components/main/SendMessageForm";
 import { ProtectedRoute } from "./components/auth/ProtectedRoute";
 import { useEffect } from "react";
 import { useMobileStore } from "./store/mobile-store";
+import { Main } from "./components/main/Main";
 
 function App() {
 
@@ -24,7 +24,7 @@ function App() {
           path="/" 
           element={
             <ProtectedRoute>
-              <SendMessageForm />
+              <Main />
             </ProtectedRoute>
           } 
         />
