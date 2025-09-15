@@ -9,6 +9,7 @@ interface Props {
   size?: "sm" | "md" | "lg" | "xs";
   className?: string;
   id?: string;
+  orientation?: "horizontal" | "vertical";
 }
 
 export const SegmentControl = ({
@@ -18,6 +19,7 @@ export const SegmentControl = ({
   size,
   className,
   id,
+  orientation,
 }: Props) => {
   const [value, setValue] = useState<string | null>(defaultValue || items[0]);
   const { isMobile } = useMobileStore();
@@ -32,6 +34,7 @@ export const SegmentControl = ({
       }}
       size={isMobile ? "sm" : size}
       className={className}
+      orientation={orientation || "horizontal"}
     >
       <SegmentGroup.Indicator bgSize="cover" />
       <SegmentGroup.Items items={items} className="cursor-pointer capitalize" />

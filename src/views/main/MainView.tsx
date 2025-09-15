@@ -4,8 +4,9 @@ import { SetupForm, type SetupFormValues } from "../send-forms/SetupForm";
 import { LogoutButton } from "../auth/LogoutButton";
 import { useMobileStore } from "@/store/mobile-store";
 import type { MessageFormValues } from "../send-forms/MessageForm";
+import { Tooltip } from "../ui/tooltip";
 
-export const Main = () => {
+export const MainView = () => {
   const { isMobile } = useMobileStore();
 
   const getData = (data: SetupFormValues & MessageFormValues) => {
@@ -23,22 +24,30 @@ export const Main = () => {
         colorPalette={"blue"}
       >
         <Tabs.List className="justify-center self-center w-full">
-          <Tabs.Trigger value="seminario">
-            {!isMobile && <Airplay />}
-            Seminario
-          </Tabs.Trigger>
-          <Tabs.Trigger value="general">
-            {!isMobile && <TextAlignStart />}
-            General
-          </Tabs.Trigger>
-          <Tabs.Trigger value="con-imagen">
-            {!isMobile && <Image />}
-            Con Imagen
-          </Tabs.Trigger>
-          <Tabs.Trigger value="con-video">
-            {!isMobile && <Video />}
-            Con Video
-          </Tabs.Trigger>
+          <Tooltip content="Seminario">
+            <Tabs.Trigger value="seminario">
+              <Airplay />
+              {!isMobile && <span>Seminario</span>}
+            </Tabs.Trigger>
+          </Tooltip>
+          <Tooltip content="General">
+            <Tabs.Trigger value="general">
+              <TextAlignStart />
+              {!isMobile && <span>General</span>}
+            </Tabs.Trigger>
+          </Tooltip>
+          <Tooltip content="Con Imagen">
+            <Tabs.Trigger value="con-imagen">
+              <Image />
+              {!isMobile && <span>Con Imagen</span>}
+            </Tabs.Trigger>
+          </Tooltip>
+          <Tooltip content="Con Video">
+            <Tabs.Trigger value="con-video">
+              <Video />
+              {!isMobile && <span>Con Video</span>}
+            </Tabs.Trigger>
+          </Tooltip>
         </Tabs.List>
 
         {/* Contenido */}

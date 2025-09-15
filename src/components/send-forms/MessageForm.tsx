@@ -113,6 +113,7 @@ export const MessageForm = forwardRef<MessageFormRef, MessageFormProps>(
                   getValue={(value) => field.onChange(value)}
                   defaultValue={field.value}
                   className="mb-10 mt-5"
+                  orientation={isMobile ? "vertical" : "horizontal"}
                 />
               )}
             />
