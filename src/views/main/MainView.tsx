@@ -1,10 +1,14 @@
 import { Tabs } from "@chakra-ui/react";
 import { Airplay, Image, TextAlignStart, Video } from "lucide-react";
-import { SetupForm, type SetupFormValues } from "../send-forms/SetupForm";
-import { LogoutButton } from "../auth/LogoutButton";
+
+
 import { useMobileStore } from "@/store/mobile-store";
-import type { MessageFormValues } from "../send-forms/MessageForm";
-import { Tooltip } from "../ui/tooltip";
+import type { MessageFormValues } from "@/components/send-forms/MessageForm";
+import { SetupForm, type SetupFormValues } from "@/components/send-forms/SetupForm";
+import { LogoutButton } from "@/components/auth/LogoutButton";
+import { Tooltip } from "@/components/ui/tooltip";
+
+
 
 export const MainView = () => {
   const { isMobile } = useMobileStore();

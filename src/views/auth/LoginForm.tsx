@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 import { User, Lock, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { AlertComponent } from "../ui/AlertComponent";
+import { AlertComponent } from "@/components/ui/AlertComponent";
 
 const authSecret = import.meta.env.VITE_REACT_AUTH_SECRET;
 interface FormValues {
